@@ -1,22 +1,25 @@
 import RepositoryItem from "./RepositoryItem"
 
 import '../styles/repositories.scss'
-
-const repository = {
-  name:'ignite-chapter01',
-  description: 'bootcamp rocketseat',
-  link: 'https://github.com/sleduardo20/ignite-chapter01'
-}
+import { useEffect, useState } from "react"
 
 const RepositoryList = () => {
+  const [repositories, setRepositories] = useState([]);
+
+  useEffect(()=>{
+    fetch('https://api.github.com/users/sleduardo20/repos')
+    .then(response => response.json())
+    .then( data => setRepositories(data))
+  },[]);
+
   return (
     <section className="repository-list">
       <h1>Lista de Repositorios</h1>
 
       <ul>
-       <RepositoryItem repository={repository} />
-       <RepositoryItem repository={repository} />
-       <RepositoryItem repository={repository} />
+       {repositories.map(repository => (
+         <RepositoryItem key={repository.id} repository={repository}/>
+       ))}
       </ul>
       
     </section>
