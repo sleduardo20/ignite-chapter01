@@ -1,3 +1,4 @@
 import React from 'react';
+import { App } from './App';
 
-const App = () => <h1>World, hold on</h1>
+const Home = () => <App/>;
