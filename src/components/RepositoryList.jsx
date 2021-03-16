@@ -1,5 +1,6 @@
-import Counter from "./Counter"
 import RepositoryItem from "./RepositoryItem"
+
+import '../styles/repositories.scss'
 
 const repository = {
   name:'ignite-chapter01',
@@ -14,8 +15,10 @@ const RepositoryList = () => {
 
       <ul>
        <RepositoryItem repository={repository} />
+       <RepositoryItem repository={repository} />
+       <RepositoryItem repository={repository} />
       </ul>
-      <Counter />
+      
     </section>
   )
 }
